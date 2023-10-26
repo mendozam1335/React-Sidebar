@@ -334,3 +334,41 @@ main {
   color: var(--primary-500);
   font-size: 1.25rem;
 }
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  display: grid;
+  place-items: center;
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+  transition-property: opacity;
+  transition-property: 2s;
+}
+.modal-content {
+  background: var(--white);
+  position: relative;
+  padding: 5rem;
+  border-radius: var(--borderRadius);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: transparent;
+  background: transparent;
+  color: var(--red-dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
