@@ -293,6 +293,138 @@ main {
 Sidebar
 ===============
 */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 1rem;
+  box-shadow: var(--red-dark);
+  transition: var(--transition);
+  /*toggle logic*/
+  transform: translateX(-100%);
+}
+.show-sidebar {
+  transform: translateX(0);
+}
+
+@media screen and (min-width: 676px) {
+  .sidebar {
+    width: 400px;
+  }
+}
+
+.sidebar-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+.logo {
+  height: 40px;
+}
+.close-btn {
+  font-size: 1.75rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--red-dark);
+  cursor: pointer;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  padding: 1rem 1.5rem;
+  color: var(--grey-700);
+  transition: var(--transition);
+  letter-spacing: var(--letterSpacing);
+}
+.links a:hover {
+  background: var(--grey-100);
+  color: var(--grey-800);
+}
+
+.links a svg {
+  font-size: 1.5rem;
+  color: var(--grey-500);
+  margin-right: 1rem;
+  transition: var(--transition);
+}
+.links a svg:hover {
+  color: var(--grey-600);
+}
+
+.social-links {
+  display: flex;
+  justify-self: center;
+  padding-bottom: 2rem;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  color: var(--primary-500);
+  transition: var(--transition);
+}
+.social-links a:hover {
+  color: var(--primary-800);
+}
+
+/*
+=======================
+Modal
+=======================
+*/
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  display: grid;
+  place-items: center;
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+  transition-property: opacity;
+  transition-duration: 2s;
+}
+.modal-content {
+  background: var(--white);
+  position: relative;
+  width: 90vw;
+  height: 30vh;
+  max-width: var(--fixed-width);
+  border-radius: var(--borderRadius);
+  display: grid;
+  place-items: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: transparent;
+  background: transparent;
+  color: var(--red-dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*
 .nav-container {
   position: fixed;
   top: 0;
@@ -351,50 +483,4 @@ Sidebar
   color: var(--primary-500);
   font-size: 1.25rem;
 }
-/*
-=======================
-Modal
-=======================
 */
-
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-  visibility: hidden;
-  opacity: 0;
-  display: grid;
-  place-items: center;
-}
-.show-modal {
-  opacity: 1;
-  visibility: visible;
-  z-index: 10;
-  transition-property: opacity;
-  transition-duration: 2s;
-}
-.modal-content {
-  background: var(--white);
-  position: relative;
-  width: 90vw;
-  height: 30vh;
-  max-width: var(--fixed-width);
-  border-radius: var(--borderRadius);
-  display: grid;
-  place-items: center;
-}
-
-.modal-close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  border: transparent;
-  background: transparent;
-  color: var(--red-dark);
-  font-size: 1.5rem;
-  cursor: pointer;
-}

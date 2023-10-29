@@ -8,42 +8,39 @@ const Sidebar = () => {
   const { closeSidebar, isSidebarOpen } = useGlobalContext();
 
   return (
-    <nav className={isSidebarOpen ? "nav-container" : "nav-container closed"}>
-      <div className="nav-center">
-        <div className="nav-header">
-          <img src={logo} alt="nav header logo" />
-          <button className="nav-close" onClick={closeSidebar}>
-            <FaTimes />
-          </button>
-        </div>
-        <div className="links-container">
-          <ul className="links">
-            {links.map((link) => {
-              const { id, url, text, icon } = link;
-              return (
-                <li key={id} className="link">
-                  <a href={url}>
-                    {icon}
-                    <p>{text}</p>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        <ul className="social-links">
-          {social.map((link) => {
-            const { id, url, icon } = link;
-            return (
-              <li key={id} className="social-link">
-                <a href={url}>{icon}</a>
-              </li>
-            );
-          })}
-        </ul>
+    <aside className={isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}>
+      <div className="sidebar-heading">
+        <img src={logo} alt="logo" />
+        <button className="close-btn" onClick={closeSidebar}>
+          <FaTimes />
+        </button>
       </div>
-    </nav>
+
+      <ul className="links">
+        {links.map((link) => {
+          const { id, url, text, icon } = link;
+          return (
+            <li key={id}>
+              <a href={url}>
+                {icon}
+                <p>{text}</p>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
+      <ul className="social-links">
+        {social.map((link) => {
+          const { id, url, icon } = link;
+          return (
+            <li key={id}>
+              <a href={url}>{icon}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </aside>
   );
 };
 
