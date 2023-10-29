@@ -2,7 +2,7 @@ import React from "react";
 import { links, social } from "./data";
 import logo from "./logo.svg";
 import { FaTimes } from "react-icons/fa";
-import { useGlobalContext } from "./App";
+import { useGlobalContext } from "./context";
 
 const Sidebar = () => {
   const { closeSidebar, isSidebarOpen } = useGlobalContext();

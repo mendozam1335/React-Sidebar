@@ -262,20 +262,37 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--grey-100);
 }
 .sidebar-btn {
   position: fixed;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 2rem;
+  left: 3rem;
   background: transparent;
-  border: transparent;
+  border-color: transparent;
   font-size: 2rem;
   color: var(--primary-500);
   cursor: pointer;
+  animation: bounce 2s ease-in-out infinite;
 }
 
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*
+=============== 
+Sidebar
+===============
+*/
 .nav-container {
   position: fixed;
   top: 0;
@@ -334,6 +351,11 @@ main {
   color: var(--primary-500);
   font-size: 1.25rem;
 }
+/*
+=======================
+Modal
+=======================
+*/
 
 .overlay {
   position: fixed;
@@ -341,7 +363,7 @@ main {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
   visibility: hidden;
   opacity: 0;
@@ -353,13 +375,17 @@ main {
   visibility: visible;
   z-index: 10;
   transition-property: opacity;
-  transition-property: 2s;
+  transition-duration: 2s;
 }
 .modal-content {
   background: var(--white);
   position: relative;
-  padding: 5rem;
+  width: 90vw;
+  height: 30vh;
+  max-width: var(--fixed-width);
   border-radius: var(--borderRadius);
+  display: grid;
+  place-items: center;
 }
 
 .modal-close {

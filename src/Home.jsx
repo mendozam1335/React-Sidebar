@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { useGlobalContext } from "./App";
+import { useGlobalContext } from "./context";
 import { FaBars } from "react-icons/fa";
+
 const Home = () => {
   const { openSidebar, openModal } = useGlobalContext();
 
